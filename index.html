@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Сайт онлайн помощи по дискретной математике!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="img/favicon.ico" type="images/x-icon">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/range.css">
+    <link rel="stylesheet" href="style/graph.css">
+
+  </head>
+  <body>
+    <header>
+      <div id="reload">Сайт онлайн помощи по дискретной математике!</div>
+    </header>
+    <div class="left">
+      <div class="left-logo">
+        <center><img src="img/logo.png" alt="Факультет Информационных технологий"></center>
+      </div>
+      <div class="left-menu">
+        <div id="menuItem1">Операции над множествами</div>
+        <div id="menuItem3">Операции над графами</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="ranges" id="rangesBlock">
+
+        <form name="rangesMenu" class="rangesMenu">
+          <input type="button" name="sum" value="Объединение множеств">
+          <input type="button" name="sub" value="Разность множеств">
+          <input type="button" name="inter" value="Пересечение множеств">
+        </form>
+
+        <div id="rangeSum">
+          <p class="range-info">Объединение множеств (тж. сумма или соединение) в теории множеств — множество, содержащее в себе все элементы исходных множеств. </p>
+          <form name="rangeSum" class="rangeForm">
+            <input type="text" name="r1" placeholder="Введите первое множество" value="">
+            <input type="text" name="r2" placeholder="Введите второе множество" value="">
+            <input type="button" name="res" value="Получить результат">
+          </form>
+
+          <p id="renderResultSum" class="renderResult"></p>
+
+        </div>
+
+
+        <div id="rangeSub">
+          <p class="range-info">Разность двух множеств — теоретико-множественная операция, результатом которой является множество, в которое входят все элементы первого множества, не входящие во второе множество.</p>
+          <form name="rangeSub"  class="rangeForm">
+            <input type="text" name="r1" placeholder="Введите первое множество" value="">
+            <input type="text" name="r2" placeholder="Введите второе множество" value="">
+            <input type="button" name="res" value="Получить результат">
+          </form>
+
+          <p id="renderResultSub" class="renderResult"></p>
+        </div>
+
+
+        <div id="rangeInter">
+          <p class="range-info">Пересечение множеств в теории множеств — это множество, которому принадлежат те и только те элементы, которые одновременно принадлежат всем данным множествам.</p>
+          <form name="rangeInter" class="rangeForm">
+            <input type="text" name="r1" placeholder="Введите первое множество" value="">
+            <input type="text" name="r2" placeholder="Введите второе множество" value="">
+            <input type="button" name="res" value="Получить результат">
+          </form>
+
+          <p id="renderResultInter" class="renderResult"></p>
+        </div>
+      </div>
+
+      <div class=""  id="graphBlock">
+
+        <div class="main-graph">
+         
+          <div class="left-graph" id="left-graph">
+            <form name="graphDataLeft" class="graphForm">
+              <input type="hidden" name="size" value="0">
+              <input type="button" name="btnAdd" value="Добавить поле"> <br />
+              <input type="button" name="getResult" value="Получить результат">
+            </form>
+            
+            <canvas id="canvasLeft" width="450" height="250"></canvas>
+            <form id="graphResultLeft"></form> 
+          </div>
+          <div class="right-graph" id="right-graph">
+            <form name="graphDataRight" class="graphForm">
+              <input type="hidden" name="size" value="0">
+              <input type="button" name="btnAdd" value="Добавить поле"> <br />
+              <input type="button" name="getResult" value="Получить результат">
+            </form>
+            
+            <canvas id="canvasRight" width="450" height="250"></canvas>
+            <form id="graphResultRight"></form>
+          </div>
+          <input type="button" value="Объединение двух графов" id="amountBtn">
+
+          <div class="centerResult">
+            <form id="graphResultCenter" name="graphResultCenter"></form>
+            <canvas id="canvasCenter" width="400" height="250" style="float: right;"></canvas>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+    <footer>
+      <div>&copy; 2017. Все права защищены. Курмашев Денис и Куделько Владимир.</div>
+    </footer>
+
+    <!-- ЛОГИКА МЕНЮ -->
+    <script type="text/javascript">
+      document.getElementById ("menuItem1").addEventListener ("click", (e) => {
+        document.getElementById ("rangesBlock").style.cssText = "display: block;";
+        document.getElementById ("graphBlock").style.cssText = "display: none;";
+      });
+      document.getElementById ("menuItem3").addEventListener ("click", (e) => {
+        document.getElementById ("rangesBlock").style.cssText = "display: none;";
+        document.getElementById ("graphBlock").style.cssText = "display: block;";
+      });
+    </script>
+
+    <!-- СКРИПТ ОБНОВЛЕНИЕ СТРАНИЦЫ -->
+    <script type="text/javascript">
+      document.getElementById ("reload").addEventListener ("click", (e) => {
+        location.reload ();
+      });
+    </script>
+
+    <!-- СКРИПТ ДЛЯ РАБОТЫ КАЛЬКУЛЯТОРА МНОЖЕСТВ -->
+    <script type="text/javascript">
+      document.rangesMenu.sum.onclick = (e) => {
+        document.getElementById ("rangeSum").style.cssText = "display: block;";
+        document.getElementById ("rangeSub").style.cssText = "display: none;";
+        document.getElementById ("rangeInter").style.cssText = "display: none;";
+      }
+      document.rangesMenu.sub.onclick = (e) => {
+        document.getElementById ("rangeSum").style.cssText = "display: none;";
+        document.getElementById ("rangeSub").style.cssText = "display: block;";
+        document.getElementById ("rangeInter").style.cssText = "display: none";
+      }
+      document.rangesMenu.inter.onclick = (e) => {
+        document.getElementById ("rangeSum").style.cssText = "display: none;";
+        document.getElementById ("rangeSub").style.cssText = "display: none;";
+        document.getElementById ("rangeInter").style.cssText = "display: block;";
+      }
+    </script>
+    <script src="math/range.js"></script>
+    <script src="math/graph-page.js"></script>
+    <script src="math/graph-matrix.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+.itemCenter, .itemLeft, .itemRight { width: 60px; margin: 0.1em;}
+
+.left-graph, .right-graph { float: left; flex: 1;  }
+#field{
+	margin-top: 50px;
+	margin-left: 50px;
+	border: 1px dashed aqua;
+}
+.main-graph { float: left; width: 80%; margin-left: 10%; margin-top: 1em; border: 3px solid #636363; display: flex; flex-wrap: wrap; justify-content: center; }
+.left-graph { border-right: 1.5px solid #636363; }
+.right-graph { border-left: 1.5px solid #636363; }
+.graphForm {
+	margin: 1em;
+}
+#graphResultLeft, #graphResultRight { 
+	width: 100%; 
+	float: left;  
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border-top: 3px solid #636363;
+	border-bottom: 3px solid #636363;
+}
+canvas { display: none; }
+
+#amountBtn {display: none; width: 100%; float: left;
+	border-width: 0;
+	background-color: #636363;
+	color: #FAFAFA;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	transition: 0.3s;
+}
+#amountBtn:hover {background-color: #595959; cursor: pointer;}
+.centerResult {width: 100%; float: left;}
+#graphResultCenter { float: left; height: 250px; width: 300px; margin-top: 100px; display: none; }

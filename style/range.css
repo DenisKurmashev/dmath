@@ -1,0 +1,30 @@
+#rangeSum, #rangeSub, #rangeInter { display: none; width: 100%; float: left;}
+.rangesMenu { width: 100%; float: left;display: flex; justify-content: center; margin-top: 1em;}
+.rangesMenu input {flex: 1;}
+.rangesMenu input {
+  border-width: 0;
+  background-color: #636363;
+  color: #FAFAFA;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: 0.3s;
+}
+.rangesMenu input:hover {background-color: #595959; cursor: pointer}
+.range-info {  margin-top: 2em; margin-bottom: 2em;}
+.rangeForm { width: 70%; margin-left: 15%;}
+.rangeForm input[type=text] { border: 0.1px solid #595959; transition: 0.3s; width: 100%; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; margin-top: 0.5em;}
+.rangeForm input[type=text]:focus {color: #FF6D00; border-color: #FF6D00;}
+.rangeForm input[type=button] {
+  margin-top: 2em;
+  border-width: 0;
+  background-color: #636363;
+  color: #FAFAFA;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: 0.3s;
+  float: left;
+  width: 50%;
+  margin-left: 25%;
+}
+.rangeForm input[type=button]:hover {background-color: #595959; cursor: pointer}
+.renderResult { float: left; width: 100%; margin-top: 7em; text-align: center;}
