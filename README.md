@@ -1,2 +1,2 @@
 # dmath
-This is simple application who help students learning discrete mathematics 
+This is a simple application that helps students to learn discrete mathematics.
